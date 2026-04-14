@@ -20,12 +20,11 @@ btn.addEventListener("click", () => {
         .then((data) => {
             console.log(data);
 
-            // ✔ Get first valid example from all meanings
+          
             let example = data[0].meanings
                 .flatMap(m => m.definitions)
                 .find(d => d.example)?.example;
 
-            // ✔ Get valid audio
             let audioSrc = data[0].phonetics
                 .find(p => p.audio)?.audio;
 
@@ -51,7 +50,7 @@ btn.addEventListener("click", () => {
             </p>
             `;
 
-            // ✔ Set audio if available
+           
             if (audioSrc) {
                 sound.setAttribute("src", audioSrc);
             }
@@ -61,7 +60,6 @@ btn.addEventListener("click", () => {
         });
 });
 
-// ✔ Play sound
 function playSound() {
     if (sound.src) {
         sound.play();
